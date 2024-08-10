@@ -6,10 +6,10 @@ extern char revData[17];
 
 void getRevData()
 {
-    revSettings.VarGet(revData, 16);
+	revSettings.VarGet(revData, 16);
 }
 
 void updateReversePage()
 {
-    getRevData();
+	getRevData();
 }
