@@ -1,5 +1,7 @@
 #include "transmitter.hpp"
 
+extern Channels channels;
+
 AirVariable ch1 = AirVariable("ch1");
 AirVariable ch2 = AirVariable("ch2");
 AirVariable ch3 = AirVariable("ch3");
@@ -17,7 +19,7 @@ AirVariable ch14 = AirVariable("ch14");
 AirVariable ch15 = AirVariable("ch15");
 AirVariable ch16 = AirVariable("ch16");
 
-void updateChannelMonitorPage(Channels channels)
+void updateChannelMonitorPage()
 {
 	ch1.VarSeti(channels.channel_0);
 	ch2.VarSeti(channels.channel_1);

@@ -1,6 +1,10 @@
 #include "transmitter.hpp"
 
+extern PowerMonitor powerMonitor;
+
 Adafruit_INA219 ina219;
+
+
 
 void startPowerMonitor()
 {
@@ -8,16 +12,16 @@ void startPowerMonitor()
   ina219.setCalibration_16V_400mA();
 }
 
-void getPowerData(PowerMonitor *powerMonitor)
+void getPowerData()
 {
-  powerMonitor->shuntvoltage = ina219.getShuntVoltage_mV();
-  powerMonitor->busvoltage = ina219.getBusVoltage_V();
-  powerMonitor->current_mA = ina219.getCurrent_mA();
-  powerMonitor->power_mW = ina219.getPower_mW();
-  powerMonitor->loadvoltage = powerMonitor->busvoltage + (powerMonitor->shuntvoltage / 1000);
+  powerMonitor.shuntvoltage = ina219.getShuntVoltage_mV();
+  powerMonitor.busvoltage = ina219.getBusVoltage_V();
+  powerMonitor.current_mA = ina219.getCurrent_mA();
+  powerMonitor.power_mW = ina219.getPower_mW();
+  powerMonitor.loadvoltage = powerMonitor.busvoltage + (powerMonitor.shuntvoltage / 1000);
 }
 
-void serialPrintPowerData(PowerMonitor powerMonitor)
+void serialPrintPowerData()
 {
   Serial.begin(9600);
   Serial.print("Bus Voltage:   ");

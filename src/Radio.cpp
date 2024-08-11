@@ -2,6 +2,7 @@
 
 RF24 radio(4, 5);
 
+extern Channels channels;
 const byte address[6] = "00001";
 
 void startRadio()
@@ -14,7 +15,7 @@ void startRadio()
 	radio.setDataRate(RF24_250KBPS);
 }
 
-void sendSignal(Channels channels)
+void sendSignal()
 {
 	radio.write(&channels, sizeof(channels));
 }

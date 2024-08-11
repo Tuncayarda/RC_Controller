@@ -2,14 +2,23 @@
 
 AirLabel valLabel = AirLabel("ELabel1");
 AirLabel chLabel = AirLabel("ELabel2");
+AirLabel trimLabel = AirLabel("trim_label");
+
 AirSlider slider = AirSlider("Slider1");
 
 extern Channels channels;
+extern Trims trims;
 
-void updateTrimPage(Channels *channels)
+void getTrimValues()
 {
-    uint16_t *ch_buff = (uint16_t *)channels;
+
+}
+
+void updateTrimPage()
+{
+    uint16_t *ch_buff = (uint16_t *)&channels;
     char buffer[10];
+
     chLabel.getText(buffer, 2);
     sprintf(buffer, "%d", ch_buff[atoi(buffer) - 1]);
     valLabel.setText(buffer);

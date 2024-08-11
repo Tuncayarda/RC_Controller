@@ -34,6 +34,26 @@ uint16_t	    channel_14;
 uint16_t	    channel_15;
 }			    Channels;
 
+typedef struct Trims
+{
+    short       ch0_trim = 0;
+    short       ch1_trim = 0;
+    short       ch2_trim = 0;
+    short       ch3_trim = 0;
+    short       ch4_trim = 0;
+    short       ch5_trim = 0;
+    short       ch6_trim = 0;
+    short       ch7_trim = 0;
+    short       ch8_trim = 0;
+    short       ch9_trim = 0;
+    short       ch10_trim = 0;
+    short       ch11_trim = 0;
+    short       ch12_trim = 0;
+    short       ch13_trim = 0;
+    short       ch14_trim = 0;
+    short       ch15_trim = 0;
+}               Trims;
+
 typedef struct  PowerMonitor
 {
 float           shuntvoltage;
@@ -52,22 +72,22 @@ enum Pages
     REVERSE_PAGE
 };
 
-void defChannels(Channels* channels);
-void serialPrintChannels(Channels channels);
+void defChannels();
+void serialPrintChannels();
 void defPins();
 void startPowerMonitor();
-void getPowerData(PowerMonitor* powerMonitor);
-void serialPrintPowerData(PowerMonitor powerMonitor);
-Pages defPage(int num);
-void updateTrimPage(Channels* channels);
-void updateChannelMonitorPage(Channels channels);
+void getPowerData();
+void serialPrintPowerData();
+void updateTrimPage();
+void updateChannelMonitorPage();
 void updateMenuPage();
-void updateHomePage(Channels channels);
+void updateHomePage();
 void updateReversePage();
-void configureChannelReversal(Channels *channels);
+void configureChannelReversal();
+void configureChannelTrim();
 void startRadio();
-void sendSignal(Channels channels);
-char* intToStr(int num);
+void sendSignal();
+
 void screenRefreshLoop();
 void initPageLoop();
 

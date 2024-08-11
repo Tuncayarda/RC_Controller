@@ -8,8 +8,8 @@ extern char revData[17];
 
 void setup()
 {
-	defPins();
 	Serial1.begin(115200);
+	defPins();
 	airInit();
 	startPowerMonitor();
 	startRadio();
@@ -19,10 +19,11 @@ void setup()
 
 void loop()
 {
-	getPowerData(&powerMonitor);
-	defChannels(&channels);
-	configureChannelReversal(&channels);
-	sendSignal(channels);
+	getPowerData();
+	defChannels();
+	configureChannelReversal();
+	configureChannelTrim();
+	sendSignal();
 	delay(50);
 }
 
@@ -34,13 +35,13 @@ void screenRefreshLoop()
 		updateMenuPage();
 		break;
 	case TRIM_PAGE:
-		updateTrimPage(&channels);
+		updateTrimPage();
 		break;
 	case CHANNEL_MONITOR_PAGE:
-		updateChannelMonitorPage(channels);
+		updateChannelMonitorPage();
 		break;
 	case HOME_PAGE:
-		updateHomePage(channels);
+		updateHomePage();
 		break;
 	case REVERSE_PAGE:
 		updateReversePage();

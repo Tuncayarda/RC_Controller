@@ -6,6 +6,7 @@ AirVariable batLevel = AirVariable("batLevel");
 AirLabel batLabel = AirLabel("batLabel");
 
 extern PowerMonitor powerMonitor;
+extern Channels channels;
 
 void updateLJ(uint16_t throttle, uint16_t yaw)
 {
@@ -47,9 +48,9 @@ void updateRJ(uint16_t roll, uint16_t pitch)
 	}
 }
 
-void updateHomePage(Channels channels)
+void updateHomePage()
 {
-	char buff[5];
+	char buff[6];
 	updateLJ(channels.channel_4, channels.channel_5);
 	updateRJ(channels.channel_8, channels.channel_7);
 	sprintf(buff, "%.2f", powerMonitor.loadvoltage);
