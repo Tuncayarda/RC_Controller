@@ -1,10 +1,7 @@
 #include "transmitter.hpp"
 
-extern Channels channels;
-extern PowerMonitor powerMonitor;
 extern uint8_t pgnbr;
 extern AirVariable pageNum;
-extern char revData[17];
 
 void setup()
 {
@@ -13,6 +10,7 @@ void setup()
 	airInit();
 	startPowerMonitor();
 	startRadio();
+	initPages();
 	Scheduler.startLoop(screenRefreshLoop);
 	Scheduler.startLoop(initPageLoop);
 }
@@ -24,7 +22,7 @@ void loop()
 	configureChannelReversal();
 	configureChannelTrim();
 	sendSignal();
-	delay(50);
+	delay(33);
 }
 
 void screenRefreshLoop()

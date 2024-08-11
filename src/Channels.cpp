@@ -41,7 +41,7 @@ void defChannels()
 void configureChannelTrim()
 {
 	uint16_t *ch_buff = (uint16_t *)&channels;
-	uint16_t *trim_buff = (uint16_t *)&trims;
+	int *trim_buff = (int *)&trims;
 	for(uint8_t i = 0; i < 16; i++)
 		ch_buff[i] += trim_buff[i];
 }
@@ -50,10 +50,8 @@ void configureChannelReversal()
 {
 	uint16_t *buff = (uint16_t *)&channels;
 	for(uint8_t i = 0; i < 16; i++)
-	{
 		if(revData[i] == '1')
 			buff[i] = 3000 - buff[i];
-	}
 }
 
 void serialPrintChannels()

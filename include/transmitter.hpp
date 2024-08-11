@@ -36,22 +36,22 @@ uint16_t	    channel_15;
 
 typedef struct Trims
 {
-    short       ch0_trim = 0;
-    short       ch1_trim = 0;
-    short       ch2_trim = 0;
-    short       ch3_trim = 0;
-    short       ch4_trim = 0;
-    short       ch5_trim = 0;
-    short       ch6_trim = 0;
-    short       ch7_trim = 0;
-    short       ch8_trim = 0;
-    short       ch9_trim = 0;
-    short       ch10_trim = 0;
-    short       ch11_trim = 0;
-    short       ch12_trim = 0;
-    short       ch13_trim = 0;
-    short       ch14_trim = 0;
-    short       ch15_trim = 0;
+int             ch0_trim = 0;
+int             ch1_trim = 0;
+int             ch2_trim = 0;
+int             ch3_trim = 0;
+int             ch4_trim = 0;
+int             ch5_trim = 0;
+int             ch6_trim = 0;
+int             ch7_trim = 0;
+int             ch8_trim = 0;
+int             ch9_trim = 0;
+int             ch10_trim = 0;
+int             ch11_trim = 0;
+int             ch12_trim = 0;
+int             ch13_trim = 0;
+int             ch14_trim = 0;
+int             ch15_trim = 0;
 }               Trims;
 
 typedef struct  PowerMonitor
@@ -71,6 +71,9 @@ enum Pages
     HOME_PAGE,
     REVERSE_PAGE
 };
+
+void initPages();
+void initTrimPage();
 
 void defChannels();
 void serialPrintChannels();
